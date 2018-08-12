@@ -1,27 +1,139 @@
-# Fpc
+# Firebase Personal Cloud
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+*Firebase personal cloud* (**_FPC_**) is a repository where i store my source code for my personal cloud hosted on [Firebase](https://firebase.google.com/ "Firebase Homepage") and it can be applied into another new project.
 
-## Development server
+<br>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Table of Contents
+* [Instructions](https://github.com/NoelCordova/fpc)
 
-## Code scaffolding
+<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instructions for a new project (**_Angular_**)
 
-## Build
+### Install angular CLI
+```
+npm install -g @angular/cli
+```
+---
+### Create an Angular project
+```
+ng new APP_NAME
+```
+---
+### Install Firebase CLI
+```
+npm install -g firebase-tools
+```
+---
+### Login Firebase
+```
+firebase login
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+*example*
+```
+$ firebase login
+? Allow Firebase to collect anonymous CLI usage and error reporting information? No
 
-## Running unit tests
+Visit this URL on any device to log in:
+https://SOME_URL/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Waiting for authentication...
 
-## Running end-to-end tests
++  Success! Logged in as USER_EMAIL@gmail.com
+```
+---
+### Link Firebase into Angular
+```
+firebase init
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+*example*
+* **DIST_FOLDER:** For Angular applications select **_dist_**
+```
+$ firebase init
 
-## Further help
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+You're about to initialize a Firebase project in this directory:
+
+  DIRECTORY_PATH/DIRECTORY_NAME
+
+? Are you ready to proceed? Yes
+? Which Firebase CLI features do you want to setup for this folder? Press Space to select features, then Enter to confirm your choices. Hosting: Configure and
+deploy Firebase Hosting sites
+
+=== Project Setup
+
+First, let's associate this project directory with a Firebase project.
+You can create multiple project aliases by running firebase use --add,
+but for now we'll just set up a default project.
+
+? Select a default Firebase project for this directory: FIREBASE_PROJECT_NAME
+
+=== Hosting Setup
+
+Your public directory is the folder (relative to your project directory) that
+will contain Hosting assets to be uploaded with firebase deploy. If you
+have a build process for your assets, use your build's output directory.
+
+? What do you want to use as your public directory? DIST_FOLDER
+? Configure as a single-page app (rewrite all urls to /index.html)? Yes
++  Wrote dist/index.html
+
+i  Writing configuration info to firebase.json...
+i  Writing project information to .firebaserc...
+
++  Firebase initialization complete!
+```
+---
+### Deploying
+
+```
+npm run deploy
+```
+*example*
+```
+$ npm run deploy
+
+> PACKAGE_NAME@VERSION deploy DIRECTORY_PATH/DIRECTORY_NAME
+> ng build --output-path dist --prod && firebase deploy
+
+
+Date: 2018-08-11T17:25:06.839Z
+Hash: 2d4406b13b297a4b7774
+Time: 23780ms
+chunk {0} runtime.a66f828dca56eeb90e02.js (runtime) 1.05 kB [entry] [rendered]
+chunk {1} styles.34c57ab7888ec1573f9c.css (styles) 0 bytes [initial] [rendered]
+chunk {2} polyfills.2f4a59095805af02bd79.js (polyfills) 59.6 kB [initial] [rendered]
+chunk {3} main.8a82c37dbab110767431.js (main) 172 kB [initial] [rendered]
+
+=== Deploying to 'FIREBASE_PROJECT_NAME'...
+
+i  deploying hosting
+i  hosting: preparing dist directory for upload...
++  hosting: 7 files uploaded successfully
+
++  Deploy complete!
+
+Project Console: ...
+Hosting URL: PROJECT_URL
+```
+
+##### Custom script:
+On the **_package.json_** file there's a script called `deploy` with these commands:
+
+*Angular build on dist folder*
+```
+ng build --output-path dist --prod
+```
+
+*Deploy to firebase*
+```
+firebase deploy
+```
