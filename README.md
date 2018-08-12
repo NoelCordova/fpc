@@ -5,7 +5,13 @@
 <br>
 
 ## Table of Contents
-* [Instructions](https://github.com/NoelCordova/fpc)
+* [Instructions (Angular)](https://github.com/NoelCordova/fpc#instructions-for-a-new-project-angular)
+  * [Install Angular CLI](https://github.com/NoelCordova/fpc#install-angular-cli)
+  * [Create Angular Project](https://github.com/NoelCordova/fpc#create-an-angular-project)
+  * [Install Firebase CLI](https://github.com/NoelCordova/fpc#install-firebase-cli)
+  * [Firebase login](https://github.com/NoelCordova/fpc#login-firebase)
+  * [Link Firebase into Angular](https://github.com/NoelCordova/fpc#link-firebase-into-angular)
+  * [Deploying](https://github.com/NoelCordova/fpc#deploying)
 
 <br>
 
