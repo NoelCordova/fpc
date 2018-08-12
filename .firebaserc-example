@@ -1,0 +1,6 @@
+// Example of the original .firebaserc file, after the command firebase init there's going to be the original file or just replace the name of the firebase id
+{
+  "projects": {
+    "default": "FIREBASE_ID_PROJECT"
+  }
+}
